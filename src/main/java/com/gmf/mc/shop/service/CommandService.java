@@ -5,8 +5,6 @@ import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
-
 
 @Service
 public class CommandService {
@@ -18,9 +16,7 @@ public class CommandService {
     }
 
     public boolean execute(CommandSender sender, Command command, String label, String[] args){
-        String path;
-        CommandMethodController controller = null;
-        controller = container.getBotApiMethodController(label);
+        CommandMethodController controller = container.getBotApiMethodController(label);
         if (controller == null) controller = container.getBotApiMethodController("");
         return controller.process(sender, command, label, args);
     }

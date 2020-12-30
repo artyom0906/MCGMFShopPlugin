@@ -23,8 +23,7 @@ public class ShopPlugin extends JavaPlugin {
 
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
-        commandService.execute(sender, command, label, args);
-        return true;
+        return commandService.execute(sender, command, label, args);
     }
 
     @Override
