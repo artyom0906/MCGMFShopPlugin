@@ -1,25 +1,20 @@
 package com.gmf.mc.shop.commands;
 
-import com.gmf.mc.shop.utils.ICommand;
+import com.gmf.mc.shop.annotation.CommandController;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.stereotype.Component;
 
 
 
-@Component
-public class HelloCommand implements ICommand {
+@CommandController
+public class HelloCommand{
     private final static Logger logger = LoggerFactory.getLogger(HelloCommand.class);
 
-    @Override
-    public void run(CommandSender sender, Command command, String label, String[] args) {
+    @com.gmf.mc.shop.annotation.Command("shelp")
+    public boolean run(CommandSender sender, Command command, String label, String[] args) {
         sender.sendMessage("help");
-    }
-
-    @Override
-    public String getCommandName() {
-        return "shelp";
+        return true;
     }
 }
